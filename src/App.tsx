@@ -1,17 +1,19 @@
-import { Routes, Route } from "react-router-dom";
-import { Layout } from "./components/Layout";
-import { HomePage } from "./pages/HomePage";
-import { TicketsPage } from "./pages/TicketsPage";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HomePage } from './pages/HomePage';
+import { TicketsPage } from './pages/TicketsPage';
+import { Layout } from './components/Layout';
 
-export default function App() {
+function App() {
   return (
-    <Layout>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/tickets" element={<TicketsPage />} />
-        {/* Fallback: alles Unbekannte auf Home */}
-        <Route path="*" element={<HomePage />} />
-      </Routes>
-    </Layout>
+    <Router>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/tickets" element={<TicketsPage />} />
+        </Routes>
+      </Layout>
+    </Router>
   );
 }
+
+export default App;
