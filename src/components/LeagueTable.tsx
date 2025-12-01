@@ -1,37 +1,39 @@
-import React from 'react';
-import leagueTable from '../data/leagueTable.json';
-import { LeagueRow } from '../types/football';
+import leagueData from "../data/leagueTable.json";
+import type { LeagueRow } from "../types/football";
 
-const LeagueTable: React.FC = () => {
-  const sortedTable = leagueTable.sort((a: LeagueRow, b: LeagueRow) => b.points - a.points);
+const rows: LeagueRow[] = (leagueData as LeagueRow[])
+  .slice()
+  .sort((a, b) => b.points - a.points);
 
+export function LeagueTable() {
   return (
-    <div className="card">
-      <h2 className="text-xl font-bold mb-2">Ligatabelle</h2>
-      <table className="w-full">
-        <thead>
-          <tr>
-            <th>Platz</th>
-            <th>Team</th>
-            <th>Punkte</th>
-            <th>Tore</th>
-            <th>Tordifferenz</th>
-          </tr>
-        </thead>
-        <tbody>
-          {sortedTable.map((row) => (
-            <tr key={row.position} className={row.teamName === 'FC React United' ? 'bg-highlight' : ''}>
-              <td>{row.position}</td>
-              <td>{row.teamName}</td>
-              <td>{row.points}</td>
-              <td>{row.goalsFor}:{row.goalsAgainst}</td>
-              <td>{row.goalsFor - row.goalsAgainst}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
-};
+    <table className="table">
+      <thead>
+        <tr>
+          <th>Team</th>
+          <th>P</th>
+          <th>Pts</th>
+          <th>GD</th>
+        </tr>
+      </thead>
+      <tbody>
+        {rows.map((row) => {
+          const diff = row.goalsFor - row.goalsAgainst;
+          const highlight = row.teamName === "FC React United";
 
-export default LeagueTable;
+          return (
+            <tr
+              key={row.teamName}
+              className={highlight ? "table-row--highlight" : undefined}
+            >
+              <td>{row.teamName}</td>
+              <td>{row.position}</td>
+              <td>{row.points}</td>
+              <td>{diff}</td>
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
+  );
+}

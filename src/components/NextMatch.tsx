@@ -1,27 +1,37 @@
-import React from 'react';
-import matches from '../data/matches.json';
-import { Match } from '../types/football';
+import matchesData from "../data/matches.json";
+import type { Match } from "../types/football";
 
-const NextMatch: React.FC = () => {
+const matches = matchesData as Match[];
+
+export function NextMatch() {
+  const today = new Date();
+
   const futureMatches = matches
-    .filter((match: Match) => !match.result && new Date(match.date) >= new Date())
-    .sort((a: Match, b: Match) => new Date(a.date).getTime() - new Date(b.date).getTime());
+    .filter((m) => !m.result || m.result.trim() === "")
+    .filter((m) => new Date(m.date) >= today)
+    .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
 
-  const nextMatch = futureMatches[0];
+  const next = futureMatches[0];
+
+  if (!next) {
+    return <p className="next-match-meta">No upcoming match scheduled.</p>;
+  }
+
+  const venueText =
+    next.venue === "Home" || next.venue === "Heim" ? "Home Stadium" : "Away";
 
   return (
-    <div className="card">
-      <h2 className="text-xl font-bold mb-2">Nächste Begegnung</h2>
-      {nextMatch ? (
-        <div>
-          <span>{nextMatch.opponent} - {new Date(nextMatch.date).toLocaleDateString('de-DE')} - {nextMatch.venue}</span>
-          {nextMatch.motto && <p className="italic">{nextMatch.motto}</p>}
-        </div>
-      ) : (
-        <p>Aktuell ist kein Spiel geplant.</p>
-      )}
+    <div>
+      <div className="next-match-opponent">{next.opponent}</div>
+      <div className="next-match-meta">
+        {new Date(next.date).toLocaleDateString("en-US", {
+          month: "long",
+          day: "numeric",
+          year: "numeric"
+        })}{" "}
+        · {venueText}
+      </div>
+      {next.motto && <div className="next-match-motto">{next.motto}</div>}
     </div>
   );
-};
-
-export default NextMatch;
+}

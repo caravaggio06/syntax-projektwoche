@@ -1,9 +1,9 @@
 export interface Match {
   id: number;
   opponent: string;
-  date: string;
-  venue: "Heim" | "Auswärts";
-  result: string;
+  date: string; // ISO Datum
+  venue: "Home" | "Away" | "Heim" | "Auswärts";
+  result: string; // z.B. "1-1" oder "" für zukünftig
   motto?: string;
 }
 

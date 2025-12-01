@@ -1,21 +1,50 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { ReactNode } from "react";
+import { NavLink } from "react-router-dom";
 
-const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+interface LayoutProps {
+  children: ReactNode;
+}
+
+export function Layout({ children }: LayoutProps) {
   return (
-    <div className="bg-dark text-light min-h-screen">
-      <header className="p-4 bg-primary text-center">
-        <h1 className="text-3xl font-bold">FC React United</h1>
-        <nav className="mt-2">
-          <Link to="/" className="mx-2">Home</Link>
-          <Link to="/tickets" className="mx-2">Tickets</Link>
-        </nav>
-      </header>
-      <main className="max-w-5xl mx-auto p-4">
+    <div className="app-shell">
+      <div className="app-card">
+        <header className="app-header">
+          <div className="app-subtitle">Official Site of the Professional Sports Club</div>
+          <h1 className="app-title">FC React United</h1>
+
+          <nav className="app-nav">
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                "app-nav-link" + (isActive ? " app-nav-link--active" : "")
+              }
+              end
+            >
+              Home
+            </NavLink>
+            <button className="app-nav-link" type="button">
+              Matches
+            </button>
+            <NavLink
+              to="/tickets"
+              className={({ isActive }) =>
+                "app-nav-link" + (isActive ? " app-nav-link--active" : "")
+              }
+            >
+              Tickets
+            </NavLink>
+            <NavLink
+              to="/tickets"
+              className="app-nav-link app-nav-link--active"
+            >
+              Buy Tickets
+            </NavLink>
+          </nav>
+        </header>
+
         {children}
-      </main>
+      </div>
     </div>
   );
-};
-
-export default Layout;
+}

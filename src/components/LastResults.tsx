@@ -1,25 +1,33 @@
-import React from 'react';
-import matches from '../data/matches.json';
-import { Match } from '../types/football';
+import matchesData from "../data/matches.json";
+import type { Match } from "../types/football";
 
-const LastResults: React.FC = () => {
+const matches = matchesData as Match[];
+
+export function LastResults() {
+  const today = new Date();
+
   const pastMatches = matches
-    .filter((match: Match) => match.result && new Date(match.date) <= new Date())
-    .sort((a: Match, b: Match) => new Date(b.date).getTime() - new Date(a.date).getTime())
-    .slice(0, 5);
+    .filter((m) => m.result && new Date(m.date) <= today)
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    .slice(0, 3);
 
   return (
-    <div className="card">
-      <h2 className="text-xl font-bold mb-2">Letzte Ergebnisse</h2>
-      <ul>
-        {pastMatches.map((match) => (
-          <li key={match.id} className="mb-2">
-            <span>{match.opponent} - {new Date(match.date).toLocaleDateString('de-DE')} - {match.venue} - {match.result}</span>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <>
+      {pastMatches.map((match) => (
+        <div key={match.id} className="card card--subtle">
+          <div className="result-team">{match.opponent}</div>
+          <div className="result-score">{match.result}</div>
+          <div className="result-meta">
+            {new Date(match.date).toLocaleDateString("en-US", {
+              month: "long",
+              day: "numeric",
+              year: "numeric"
+            })}{" "}
+            ·{" "}
+            {match.venue === "Home" || match.venue === "Heim" ? "Home" : "Away"}
+          </div>
+        </div>
+      ))}
+    </>
   );
-};
-
-export default LastResults;
+}
