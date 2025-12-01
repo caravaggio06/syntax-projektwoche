@@ -11,7 +11,7 @@ export function Layout({ children }: LayoutProps) {
       <div className="app-card">
         <header className="app-header">
           <div className="app-subtitle">Official Site of the Professional Sports Club</div>
-          <h1 className="app-title">FC React United</h1>
+          <h1 className="app-title">Alianza Lima</h1>
 
           <nav className="app-nav">
             <NavLink

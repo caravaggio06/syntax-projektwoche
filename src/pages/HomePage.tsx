@@ -23,7 +23,7 @@ export function HomePage() {
           <div className="ticket-card">
             <div className="card-header">Buy Tickets</div>
             <p className="muted" style={{ marginBottom: 10 }}>
-              Secure your seat for the next home game of FC React United.
+              Secure your seat for the next home game of Alianza Lima United.
             </p>
             <Link to="/tickets">
               <button className="ticket-cta">Go to Ticket Page</button>
@@ -48,7 +48,7 @@ export function HomePage() {
                 All matches, results and tickets – always one tap away.
               </div>
             </div>
-            <div className="mobile-promo-badge">Prototype · FC React United App</div>
+            <div className="mobile-promo-badge">Prototype · Alianza Lima United App</div>
           </div>
         </div>
       </section>

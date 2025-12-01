@@ -1,7 +1,7 @@
-# FC React United – Syntax Projektwoche
+# Alianza Lima United – Syntax Projektwoche
 
 Frontend-Projekt mit React + TypeScript + Vite.  
-Ziel: Kleine Vereinsseite für den fiktiven Club **FC React United**.
+Ziel: Kleine Vereinsseite für den fiktiven Club **Alianza Lima United**.
 
 ## Features
 

@@ -19,7 +19,7 @@ export function LeagueTable() {
       <tbody>
         {rows.map((row) => {
           const diff = row.goalsFor - row.goalsAgainst;
-          const highlight = row.teamName === "FC React United";
+          const highlight = row.teamName === "Alianza Lima United";
 
           return (
             <tr
