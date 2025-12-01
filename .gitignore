@@ -1,0 +1,14 @@
+# Build & Vendor
+node_modules/
+vendor/
+dist/
+build/
+# IDE/OS
+.idea/
+.vscode/
+.DS_Store
+# DDEV & Docker
+.ddev/
+.env
+.env.local
+docker-compose.override.yml

@@ -1,0 +1,44 @@
+[
+  {
+    "position": 1,
+    "teamName": "FC React United",
+    "points": 30,
+    "goalsFor": 25,
+    "goalsAgainst": 10
+  },
+  {
+    "position": 2,
+    "teamName": "Team A",
+    "points": 28,
+    "goalsFor": 22,
+    "goalsAgainst": 12
+  },
+  {
+    "position": 3,
+    "teamName": "Team B",
+    "points": 25,
+    "goalsFor": 20,
+    "goalsAgainst": 15
+  },
+  {
+    "position": 4,
+    "teamName": "Team C",
+    "points": 22,
+    "goalsFor": 18,
+    "goalsAgainst": 16
+  },
+  {
+    "position": 5,
+    "teamName": "Team D",
+    "points": 20,
+    "goalsFor": 15,
+    "goalsAgainst": 18
+  },
+  {
+    "position": 6,
+    "teamName": "Team E",
+    "points": 18,
+    "goalsFor": 14,
+    "goalsAgainst": 20
+  }
+]
