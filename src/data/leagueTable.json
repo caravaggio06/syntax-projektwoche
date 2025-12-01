@@ -1,8 +1,0 @@
-[
-  { "position": 1, "teamName": "Alianza Lima", "points": 28, "goalsFor": 28, "goalsAgainst": 13 },
-  { "position": 2, "teamName": "Galatasaray", "points": 28, "goalsFor": 26, "goalsAgainst": 17 },
-  { "position": 3, "teamName": "Barcelona", "points": 27, "goalsFor": 24, "goalsAgainst": 15 },
-  { "position": 4, "teamName": "Boca Juniors", "points": 26, "goalsFor": 26, "goalsAgainst": 20 },
-  { "position": 5, "teamName": "FC Union Berlin", "points": 22, "goalsFor": 20, "goalsAgainst": 19 },
-  { "position": 6, "teamName": "Rayo Vallecano", "points": 20, "goalsFor": 19, "goalsAgainst": 21 }
-]

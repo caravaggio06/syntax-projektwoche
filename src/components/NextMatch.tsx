@@ -1,37 +1,43 @@
+import { Match } from "../types";
 import matchesData from "../data/matches.json";
-import type { Match } from "../types/football";
-
-const matches = matchesData as Match[];
 
 export function NextMatch() {
-  const today = new Date();
-
-  const futureMatches = matches
-    .filter((m) => !m.result || m.result.trim() === "")
-    .filter((m) => new Date(m.date) >= today)
-    .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
-
-  const next = futureMatches[0];
-
-  if (!next) {
-    return <p className="next-match-meta">No upcoming match scheduled.</p>;
-  }
-
-  const venueText =
-    next.venue === "Home" || next.venue === "Heim" ? "Home Stadium" : "Away";
+  // Encontrar el próximo partido (sin resultado)
+  const nextMatch = (matchesData as Match[]).find(match => !match.result);
+  
+  if (!nextMatch) return <div className="text-center py-4">Keine bevorstehenden Spiele</div>;
+  
+  const matchDate = new Date(nextMatch.date);
+  const formattedDate = matchDate.toLocaleDateString('de-DE', {
+    weekday: 'long',
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric'
+  });
 
   return (
-    <div>
-      <div className="next-match-opponent">{next.opponent}</div>
-      <div className="next-match-meta">
-        {new Date(next.date).toLocaleDateString("en-US", {
-          month: "long",
-          day: "numeric",
-          year: "numeric"
-        })}{" "}
-        · {venueText}
+    <div className="space-y-4">
+      <div className="flex items-center justify-between">
+        <div>
+          <div className="text-3xl font-bold">{nextMatch.opponent}</div>
+          <div className="text-blue-100">{nextMatch.venue === 'Home' ? 'Heimspiel' : 'Auswärtsspiel'}</div>
+        </div>
+        <div className="text-right">
+          <div className="text-2xl font-bold">{formattedDate}</div>
+          <div className="text-blue-100">{nextMatch.motto || "Packende Begegnung!"}</div>
+        </div>
       </div>
-      {next.motto && <div className="next-match-motto">{next.motto}</div>}
+      
+      <div className="flex items-center justify-center space-x-4 pt-4">
+        <div className="text-center">
+          <div className="text-lg font-semibold">FC React United</div>
+          <div className="text-4xl font-bold mt-2">VS</div>
+        </div>
+        <div className="text-center">
+          <div className="text-lg font-semibold">{nextMatch.opponent}</div>
+          <div className="text-sm text-blue-100 mt-1">{nextMatch.venue === 'Home' ? 'Gast' : 'Gastgeber'}</div>
+        </div>
+      </div>
     </div>
   );
 }
