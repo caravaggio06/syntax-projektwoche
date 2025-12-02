@@ -88,12 +88,12 @@ export function TicketsPage() {
                   <div className="font-medium text-gray-800 dark:text-gray-200">{t('pricePerTicket')}</div>
                   <div className="text-sm text-gray-500 dark:text-gray-400">Einzelpreis inkl. Gebühren</div>
                 </div>
-                <div className="text-2xl font-bold text-gray-900 dark:text-white">${TICKET_PRICE.toFixed(2)}</div>
+                <div className="text-2xl font-bold text-gray-900 dark:text-white">€{TICKET_PRICE.toFixed(2)}</div>
               </div>
               
               <div className="flex justify-between items-center py-6 bg-blue-50 dark:bg-blue-900/20 px-6 rounded-xl">
                 <div className="text-lg font-bold text-gray-800 dark:text-gray-200">{t('total')}</div>
-                <div className="text-4xl font-bold text-blue-600 dark:text-blue-400">${total.toFixed(2)}</div>
+                <div className="text-4xl font-bold text-blue-600 dark:text-blue-400">€{total.toFixed(2)}</div>
               </div>
             </div>
 
@@ -102,7 +102,7 @@ export function TicketsPage() {
               type="submit"
               className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold py-4 px-6 rounded-xl text-lg transition duration-300 shadow-lg hover:shadow-xl"
             >
-              {quantity} Ticket{quantity > 1 ? 's' : ''} {t('purchase')} – ${total.toFixed(2)}
+              {quantity} Ticket{quantity > 1 ? 's' : ''} {t('purchase')} – €{total.toFixed(2)}
             </button>
 
             {/* Confirmation Message */}

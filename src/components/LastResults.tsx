@@ -12,7 +12,7 @@ export function LastResults() {
     .reverse();
 
   if (recentMatches.length === 0) {
-    return <div className="text-center py-4 text-gray-500 dark:text-gray-400">{t('loading')}</div>;
+    return <div className="text-center py-4 text-gray-500 dark:text-gray-400">Noch keine Spiele gespielt</div>;
   }
 
   return (
@@ -24,11 +24,11 @@ export function LastResults() {
         const isDraw = homeGoals === awayGoals;
 
         return (
-          <div key={match.id} className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-700/50 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+          <div key={match.id} className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition">
             <div className="flex-1">
               <div className="font-semibold text-gray-800 dark:text-gray-200">vs {match.opponent}</div>
               <div className="text-sm text-gray-500 dark:text-gray-400">
-                {new Date(match.date).toLocaleDateString('de-DE')} • {match.venue === 'Home' ? t('homeGame') : t('awayGame')}
+                {new Date(match.date).toLocaleDateString('de-DE')} • {match.venue === 'Home' ? 'Heim' : 'Auswärts'}
               </div>
             </div>
             
@@ -46,9 +46,9 @@ export function LastResults() {
                   isDraw ? 'text-yellow-600 dark:text-yellow-500' :
                   'text-red-600 dark:text-red-500'
                 }`}>
-                  {isWin ? t('win') : isDraw ? t('draw') : t('loss')}
+                  {isWin ? 'Sieg' : isDraw ? 'Unentschieden' : 'Niederlage'}
                 </div>
-                <div className="text-xs text-gray-500 dark:text-gray-400">{t('result')}</div>
+                <div className="text-xs text-gray-500 dark:text-gray-400">Ergebnis</div>
               </div>
             </div>
           </div>

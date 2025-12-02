@@ -26,5 +26,5 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [], // Vacío - line-clamp ya viene incluido
 }

@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@radix-ui/react-switch": "^1.2.6",
+    "@tailwindcss/line-clamp": "^0.4.4",
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
     "i18next": "^25.7.1",
