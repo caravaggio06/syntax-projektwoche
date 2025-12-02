@@ -5,7 +5,8 @@
     "date": "2024-04-07",
     "venue": "Home",
     "result": "2-1",
-    "motto": "Unter den Lichtern – Heimvorteil nutzen!"
+    "motto_de": "Unter den Lichtern – Heimvorteil nutzen!",
+    "motto_en": "Under the lights – Make home advantage count!"
   },
   {
     "id": 2,
@@ -20,7 +21,8 @@
     "date": "2024-03-27",
     "venue": "Home",
     "result": "3-1",
-    "motto": "Derby-Feeling in Berlin!"
+    "motto_de": "Derby-Feeling in Berlin!",
+    "motto_en": "Derby feeling in Berlin!"
   },
   {
     "id": 4,
@@ -28,7 +30,8 @@
     "date": "2024-04-30",
     "venue": "Home",
     "result": "",
-    "motto": "React Nacht – Stadion füllen!"
+    "motto_de": "React Nacht – Stadion füllen!",
+    "motto_en": "React Night – Fill the stadium!"
   },
   {
     "id": 5,
@@ -43,6 +46,7 @@
     "date": "2024-05-12",
     "venue": "Home",
     "result": "",
-    "motto": "Internationales Topspiel!"
+    "motto_de": "Internationales Topspiel!",
+    "motto_en": "International top match!"
   }
 ]

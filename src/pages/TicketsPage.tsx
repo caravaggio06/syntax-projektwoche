@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 const TICKET_PRICE = 25;
 
 export function TicketsPage() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [quantity, setQuantity] = useState(1);
   const [confirmed, setConfirmed] = useState(false);
 
@@ -27,8 +27,10 @@ export function TicketsPage() {
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">{t('tickets')}</h1>
         <p className="text-gray-600 dark:text-gray-300 text-lg max-w-3xl mx-auto">
-          Sichern Sie sich jetzt Ihre Tickets für die Heimspiele des FC React United.
-          Einfach, sicher und bequem online.
+          {i18n.language === 'en'
+          ? 'Secure now your tickets for FC React United home games. Simple and safe online.'
+          : 'Sichern Sie sich jetzt Ihre Tickets für die Heimspiele des FC React United. Einfach, sicher und bequem online.'
+         }
         </p>
       </div>
 
@@ -52,7 +54,12 @@ export function TicketsPage() {
                 
                 <div className="text-center">
                   <div className="text-6xl font-bold text-gray-900 dark:text-white">{quantity}</div>
-                  <div className="text-gray-500 dark:text-gray-400 mt-2">Tickets</div>
+                  <div className="text-gray-500 dark:text-gray-400 mt-2">
+                    {quantity === 1 
+                      ? i18n.language === 'en' ? 'Ticket' : 'Eintrittskarte'
+                      : i18n.language === 'en' ? 'Tickets' : 'Eintrittskarten'
+                    }
+                  </div>
                 </div>
                 
                 <button
@@ -75,8 +82,8 @@ export function TicketsPage() {
                   className="w-full h-3 bg-gray-200 dark:bg-gray-700 rounded-lg appearance-none cursor-pointer accent-blue-600 dark:accent-blue-500"
                 />
                 <div className="flex justify-between text-sm text-gray-500 dark:text-gray-400 mt-2">
-                  <span>1 Ticket</span>
-                  <span>20 Tickets (Maximum)</span>
+                  <span>1 {i18n.language === 'en' ? 'Ticket' : 'Eintrittskarte'}</span>
+                  <span>20 {i18n.language === 'en' ? 'Tickets' : 'Eintrittskarten'} ({i18n.language === 'en' ? 'Max' : 'Maximum'})</span>
                 </div>
               </div>
             </div>
@@ -86,8 +93,10 @@ export function TicketsPage() {
               <div className="flex justify-between items-center py-4 border-b border-gray-200 dark:border-gray-700">
                 <div>
                   <div className="font-medium text-gray-800 dark:text-gray-200">{t('pricePerTicket')}</div>
-                  <div className="text-sm text-gray-500 dark:text-gray-400">Einzelpreis inkl. Gebühren</div>
-                </div>
+                    <div className="text-sm text-gray-500 dark:text-gray-400">
+                     {i18n.language === 'en' ? 'Price incl. fees' : 'Einzelpreis inkl. Gebühren'}
+                    </div>
+                  </div>
                 <div className="text-2xl font-bold text-gray-900 dark:text-white">€{TICKET_PRICE.toFixed(2)}</div>
               </div>
               
@@ -99,11 +108,14 @@ export function TicketsPage() {
 
             {/* Submit Button */}
             <button
-              type="submit"
-              className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold py-4 px-6 rounded-xl text-lg transition duration-300 shadow-lg hover:shadow-xl"
-            >
-              {quantity} Ticket{quantity > 1 ? 's' : ''} {t('purchase')} – €{total.toFixed(2)}
-            </button>
+  type="submit"
+  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold py-4 px-6 rounded-xl text-lg transition duration-300 shadow-lg hover:shadow-xl"
+>
+  {i18n.language === 'en'
+    ? `${quantity} Ticket${quantity > 1 ? 's' : ''} ${t('purchase')} – €${total.toFixed(2)}`
+    : `${quantity} Eintrittskarten${quantity > 1 ? 's' : ''} ${t('purchase')} – €${total.toFixed(2)}`
+  }
+</button>
 
             {/* Confirmation Message */}
             {confirmed && (
@@ -115,10 +127,14 @@ export function TicketsPage() {
                   <div>
                     <h4 className="text-xl font-bold text-green-800 dark:text-emerald-400">{t('orderConfirmed')}!</h4>
                     <p className="text-green-700 dark:text-emerald-300">
-                      Sie haben {quantity} Ticket{quantity > 1 ? 's' : ''} für FC React United gekauft.
-                      Eine Bestätigung wurde an Ihre E-Mail gesendet.
+                    {i18n.language === 'en'
+                    ? `You purchased ${quantity} ticket${quantity > 1 ? 's' : ''}. Confirmation sent to email.`
+                     : `Sie haben ${quantity} Ticket${quantity > 1 ? 's' : ''} gekauft. Bestätigung an E-Mail gesendet.`
+                    }
                     </p>
-                    <p className="text-green-600 dark:text-emerald-400 mt-2 font-medium">Viel Spaß beim Spiel! ⚽</p>
+                    <p className="text-green-600 dark:text-emerald-400 mt-2 font-medium">
+                      {i18n.language === 'en' ? 'Enjoy the game! ⚽' : 'Viel Spaß beim Spiel! ⚽'}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -127,7 +143,7 @@ export function TicketsPage() {
             {/* Demo Note */}
             <div className="mt-8 p-4 bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg text-center">
               <p className="text-yellow-800 dark:text-yellow-300 text-sm">
-                ⚠️ {t('demoNote')}. Es findet keine echte Zahlung statt.
+                ⚠️ {t('demoNote')}. {i18n.language === 'en' ? 'No real payment occurs.' : 'Es findet keine echte Zahlung statt.'}
               </p>
             </div>
           </form>
@@ -151,30 +167,47 @@ export function TicketsPage() {
               </div>
               <div className="pt-4 border-t border-gray-700">
                 <div className="text-sm text-gray-400">📍 React Arena, Berlin</div>
-                <div className="text-sm text-gray-400">🎫 Verfügbare Plätze: 3.245</div>
+                <div className="text-sm text-gray-400">
+                  🎫 {i18n.language === 'en' ? 'Available seats' : 'Verfügbare Plätze'}: 3.245
+                </div>
               </div>
             </div>
           </div>
 
           {/* Important Information */}
-          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6">
-            <h4 className="font-bold text-gray-800 dark:text-white mb-4">{t('importantInfo')}</h4>
-            <ul className="space-y-3">
-              {[
-                "Tickets sind personalisiert und nicht übertragbar",
-                "Einlass ab 2 Stunden vor Spielbeginn",
-                "Kostenlose Stornierung bis 24h vor Spiel",
-                "Familiendiscount ab 4 Tickets verfügbar",
-                "Barrierefreie Plätze verfügbar",
-                "Digitales Ticket auf dem Smartphone"
-              ].map((item, index) => (
-                <li key={index} className="flex items-start gap-3">
-                  <span className="text-green-500 dark:text-green-400 mt-1">✓</span>
-                  <span className="text-gray-700 dark:text-gray-300">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+<div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6">
+  <h4 className="font-bold text-gray-800 dark:text-white mb-4">{t('importantInfo')}</h4>
+  <ul className="space-y-3">
+    {i18n.language === 'en' 
+      ? [
+          "Tickets are personalized and non-transferable",
+          "Admission from 2 hours before the game",
+          "Free cancellation up to 24h before the game", 
+          "Family discount available from 4 tickets",
+          "Accessible seats available",
+          "Digital ticket on your smartphone"
+        ].map((item, index) => (
+          <li key={index} className="flex items-start gap-3">
+            <span className="text-green-500 dark:text-green-400 mt-1">✓</span>
+            <span className="text-gray-700 dark:text-gray-300">{item}</span>
+          </li>
+        ))
+      : [
+          "Tickets sind personalisiert und nicht übertragbar",
+          "Einlass ab 2 Stunden vor Spielbeginn", 
+          "Kostenlose Stornierung bis 24h vor Spiel",
+          "Familiendiscount ab 4 Tickets verfügbar",
+          "Barrierefreie Plätze verfügbar",
+          "Digitales Ticket auf dem Smartphone"
+        ].map((item, index) => (
+          <li key={index} className="flex items-start gap-3">
+            <span className="text-green-500 dark:text-green-400 mt-1">✓</span>
+            <span className="text-gray-700 dark:text-gray-300">{item}</span>
+          </li>
+        ))
+    }
+  </ul>
+</div>
 
           {/* Contact Info */}
           <div className="bg-blue-50 dark:bg-blue-900/20 rounded-2xl p-6">

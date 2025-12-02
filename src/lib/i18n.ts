@@ -2,13 +2,12 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
-// Traducciones alemanas
 const resources = {
   de: {
     translation: {
       // Navegación
       home: "Startseite",
-      tickets: "Tickets kaufen",
+      tickets: "Eintrittskarten kaufen",
       matches: "Spiele",
       table: "Tabelle",
       officialClubSite: "Offizielle Vereinsseite • Bundesliga 2024",
@@ -19,7 +18,7 @@ const resources = {
       nextMatch: "Nächstes Spiel",
       lastResults: "Letzte Ergebnisse",
       leagueTable: "Ligatabelle",
-      buyTickets: "Tickets kaufen",
+      buyTickets: "Eintrittskarten kaufen",
       clubStatistics: "Vereinsstatistik",
       currentPosition: "Aktuelle Position",
       points: "Punkte",
@@ -31,8 +30,8 @@ const resources = {
       founded: "Gegründet",
       
       // Tickets Page
-      selectTickets: "Anzahl der Tickets auswählen",
-      pricePerTicket: "Preis pro Ticket",
+      selectTickets: "Anzahl den karten auswählen",
+      pricePerTicket: "Preis pro Karte",
       total: "Gesamtsumme",
       purchase: "Kaufen",
       orderConfirmed: "Bestellung bestätigt",
@@ -56,25 +55,72 @@ const resources = {
       success: "Erfolg",
       save: "Speichern",
       cancel: "Abbrechen",
-      continue: "Weiter"
+      continue: "Weiter",
+      language: "Sprache",
+      theme: "Thema",
+      darkMode: "Dark Mode",
+      lightMode: "Light Mode"
+
+      
     }
   },
   en: {
     translation: {
+      // Navigation
       home: "Home",
       tickets: "Buy Tickets",
+      matches: "Matches",
+      table: "Table",
       officialClubSite: "Official Club Site • Bundesliga 2024",
       allRightsReserved: "All rights reserved",
+      
+      // Home Page
       welcome: "Welcome to FC React United",
       nextMatch: "Next Match",
       lastResults: "Recent Results",
       leagueTable: "League Table",
       buyTickets: "Buy Tickets",
+      clubStatistics: "Club Statistics",
+      currentPosition: "Current Position",
+      points: "Points",
+      goals: "Goals",
+      goalDifference: "Goal Difference",
+      stadium: "Stadium",
+      capacity: "Capacity",
+      coach: "Coach",
+      founded: "Founded",
+      
+      // Tickets Page
       selectTickets: "Select Number of Tickets",
       pricePerTicket: "Price per Ticket",
       total: "Total Amount",
       purchase: "Purchase",
-      orderConfirmed: "Order Confirmed"
+      orderConfirmed: "Order Confirmed",
+      nextHomeGame: "Next Home Game",
+      importantInfo: "Important Information",
+      contactSupport: "Contact & Support",
+      demoNote: "This is a demo website",
+      
+      // Match info
+      homeGame: "Home Game",
+      awayGame: "Away Game",
+      vs: "vs",
+      win: "Win",
+      loss: "Loss",
+      draw: "Draw",
+      result: "Result",
+      
+      // General
+      loading: "Loading...",
+      error: "Error",
+      success: "Success",
+      save: "Save",
+      cancel: "Cancel",
+      continue: "Continue",
+      language: "Language",
+      theme: "Theme",
+      darkMode: "Dark Mode",
+      lightMode: "Light Mode"
     }
   }
 };
@@ -84,7 +130,8 @@ i18n
   .use(initReactI18next)
   .init({
     resources,
-    fallbackLng: 'de',
+    fallbackLng: 'en', // Cambiado a 'en' como fallback
+    lng: 'de', // Idioma inicial por defecto
     interpolation: {
       escapeValue: false
     },

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 export function HomePage() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   return (
     <div className="space-y-12 animate-fade-in">
@@ -15,8 +15,10 @@ export function HomePage() {
           {t('welcome')}
         </h1>
         <p className="text-gray-600 dark:text-gray-300 text-lg max-w-3xl mx-auto">
-          Der moderne Fußballverein mit Tradition und Innovation. 
-          Verfolgen Sie alle Spiele, Ergebnisse und holen Sie sich Ihre Tickets.
+      {i18n.language === 'en' 
+       ? 'Modern football club with tradition and innovation. Follow all games and get tickets.'
+       : 'Der moderne Fußballverein mit Tradition und Innovation. Verfolgen Sie alle Spiele, Ergebnisse und holen Sie sich Ihre Tickets.'
+      }
         </p>
       </div>
 
@@ -29,7 +31,7 @@ export function HomePage() {
             <div className="flex justify-between items-center mb-6">
               <h2 className="text-2xl font-bold">{t('nextMatch')}</h2>
               <span className="bg-white/20 px-4 py-1 rounded-full text-sm">
-                Highlight
+                {i18n.language === 'en' ? 'Highlight' : 'Highlight'}
               </span>
             </div>
             <NextMatch />
@@ -40,7 +42,7 @@ export function HomePage() {
             <div className="flex justify-between items-center mb-6">
               <h2 className="text-2xl font-bold text-gray-800 dark:text-white">{t('lastResults')}</h2>
               <span className="text-sm text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded-full">
-                3 Spiele
+               3 {i18n.language === 'en' ? 'Games' : 'Spiele'}
               </span>
             </div>
             <LastResults />
@@ -66,9 +68,12 @@ export function HomePage() {
               <div className="text-3xl mb-4">🎫</div>
               <h3 className="text-xl font-bold mb-3">{t('buyTickets')}</h3>
               <p className="text-green-100 mb-6">
-                Sichern Sie sich jetzt Ihre Plätze für die nächsten Heimspiele.
+                {i18n.language === 'en' 
+               ? 'Secure your seats for the next home games.'
+                : 'Sichern Sie sich jetzt Ihre Plätze für die nächsten Heimspiele.'
+                }
               </p>
-              <Link to="/tickets">
+               <Link to="/tickets">
                 <button className="w-full bg-white text-emerald-700 hover:bg-gray-100 dark:hover:bg-gray-200 font-bold py-3 px-4 rounded-xl transition duration-300 shadow-lg">
                   {t('tickets')} →
                 </button>
