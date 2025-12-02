@@ -30,7 +30,7 @@ const resources = {
       founded: "Gegründet",
       
       // Tickets Page
-      selectTickets: "Anzahl den karten auswählen",
+      selectTickets: "Anzahl den Karten auswählen",
       pricePerTicket: "Preis pro Karte",
       total: "Gesamtsumme",
       purchase: "Kaufen",
