@@ -1,10 +1,12 @@
+// types.ts
 export interface Match {
   id: number;
   opponent: string;
-  date: string; // ISO Datum
-  venue: "Home" | "Away" | "Heim" | "Auswärts";
-  result: string; // z.B. "1-1" oder "" für zukünftig
-  motto?: string;
+  date: string;
+  venue: 'Home' | 'Away';
+  result: string;
+  motto_de?: string;  // Opcional
+  motto_en?: string;  // Opcional
 }
 
 export interface LeagueRow {

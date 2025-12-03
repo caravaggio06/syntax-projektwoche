@@ -1,39 +1,52 @@
 [
   {
     "id": 1,
-    "opponent": "Team A",
+    "opponent": "Galatasaray",
     "date": "2024-04-07",
     "venue": "Home",
-    "result": "1-1",
-    "motto": "Under the Lights – Home Crowd Strong!"
+    "result": "2-1",
+    "motto_de": "Unter den Lichtern – Heimvorteil nutzen!",
+    "motto_en": "Under the lights – Make home advantage count!"
   },
   {
     "id": 2,
-    "opponent": "Team B",
+    "opponent": "Barcelona",
     "date": "2024-04-02",
     "venue": "Away",
-    "result": "1-1"
+    "result": "1-2"
   },
   {
     "id": 3,
-    "opponent": "Team C",
+    "opponent": "FC Union Berlin",
     "date": "2024-03-27",
     "venue": "Home",
-    "result": "1-1"
+    "result": "3-1",
+    "motto_de": "Derby-Feeling in Berlin!",
+    "motto_en": "Derby feeling in Berlin!"
   },
   {
     "id": 4,
-    "opponent": "Team City",
+    "opponent": "Bayern München",
     "date": "2024-04-30",
     "venue": "Home",
     "result": "",
-    "motto": "React Night – Fill the Stadium!"
+    "motto_de": "React Nacht – Stadion füllen!",
+    "motto_en": "React Night – Fill the stadium!"
   },
   {
     "id": 5,
-    "opponent": "Hooks FC",
+    "opponent": "Alianza Lima",
     "date": "2024-05-05",
     "venue": "Away",
     "result": ""
+  },
+  {
+    "id": 6,
+    "opponent": "Boca Juniors",
+    "date": "2024-05-12",
+    "venue": "Home",
+    "result": "",
+    "motto_de": "Internationales Topspiel!",
+    "motto_en": "International top match!"
   }
 ]
