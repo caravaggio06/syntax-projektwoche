@@ -13,3 +13,4 @@ build/
 .env.local
 docker-compose.override.yml
 vite.config.js
+vite.config.ts
