@@ -19,9 +19,11 @@ export function Layout({ children }: LayoutProps) {
           <div className="flex flex-col md:flex-row justify-between items-center">
             {/* Logo */}
             <div className="flex items-center space-x-4 mb-4 md:mb-0">
-              <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center">
-                <span className="text-2xl text-blue-900">⚽</span>
-              </div>
+              <img
+                src="/images/clubs/dfb.png"
+                alt="FC React United Logo"
+                className="h-14 w-14 bg-slate-900 object-contain"
+              />
               <div>
                 <h1 className="text-2xl md:text-3xl font-bold">FC React United</h1>
                 <p className="text-blue-200 dark:text-blue-300 text-sm">
